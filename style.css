@@ -1,0 +1,18 @@
+:root {
+  --bg: #f6f7f9;
+  --fg: #1c1f24;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --line: #e3e6ea;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--fg); }
+header { padding: 16px 24px; border-bottom: 1px solid var(--line); background: var(--card); }
+header h1 { margin: 0; font-size: 20px; }
+main { display: flex; gap: 24px; padding: 24px; flex-wrap: wrap; }
+.map {
+  display: grid;
+  grid-template-columns: repeat(8, 64px);
+  grid-auto-rows: 64px;
+  gap: 6px;
+}
