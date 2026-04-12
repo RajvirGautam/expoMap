@@ -16,3 +16,17 @@ main { display: flex; gap: 24px; padding: 24px; flex-wrap: wrap; }
   grid-auto-rows: 64px;
   gap: 6px;
 }
+.booth {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--fg);
+  font: 600 13px system-ui, sans-serif;
+  cursor: pointer;
+}
+.booth:hover { outline: 2px solid var(--fg); }
+.booth--hardware { background: #dbeafe; }
+.booth--software { background: #dcfce7; }
+.booth--food { background: #fef3c7; }
+.booth--info { background: #ede9fe; }
+.booth--startup { background: #fce7f3; }
