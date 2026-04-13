@@ -30,3 +30,14 @@ main { display: flex; gap: 24px; padding: 24px; flex-wrap: wrap; }
 .booth--food { background: #fef3c7; }
 .booth--info { background: #ede9fe; }
 .booth--startup { background: #fce7f3; }
+.booth.is-selected { outline: 3px solid var(--fg); }
+.details {
+  flex: 1;
+  min-width: 220px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+.details h2 { margin: 0 0 4px; font-size: 18px; }
+.details__meta, .details__empty { margin: 0; color: var(--muted); }
