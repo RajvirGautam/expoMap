@@ -43,4 +43,23 @@ function filterBooths(query) {
 
 searchEl.addEventListener('input', (e) => filterBooths(e.target.value));
 
+searchEl.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    searchEl.value = '';
+    filterBooths('');
+    searchEl.blur();
+  }
+  if (e.key === 'Enter') {
+    const first = [...mapEl.children].find((el) => !el.classList.contains('is-dimmed'));
+    if (first) first.click();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === '/' && document.activeElement !== searchEl) {
+    e.preventDefault();
+    searchEl.focus();
+  }
+});
+
 loadBooths().then(renderMap);
