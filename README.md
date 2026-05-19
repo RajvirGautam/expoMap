@@ -12,6 +12,14 @@ npx serve .
 python3 -m http.server 8000
 ```
 
+## Search
+
+Type in the search box to dim booths that don't match by id, name or category.
+
+- `/` focuses the search box
+- `Enter` opens the first matching booth
+- `Esc` clears the search
+
 ## Booth data
 
 Booths live in `data/booths.json`. Each booth sits on an 8-column grid:
