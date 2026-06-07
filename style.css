@@ -72,3 +72,17 @@ main { display: flex; gap: 24px; padding: 24px; flex-wrap: wrap; }
   font: inherit;
 }
 .booth.is-dimmed { opacity: 0.25; }
+header { position: relative; }
+.theme-toggle {
+  position: absolute;
+  top: 14px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+}
+.booth[class*="booth--"] { color: #1c1f24; }
