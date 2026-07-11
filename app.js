@@ -27,6 +27,7 @@ function selectBooth(booth, el) {
   if (selected) selected.classList.remove('is-selected');
   selected = el;
   el.classList.add('is-selected');
+  history.replaceState(null, '', `#${booth.id}`);
   detailsEl.innerHTML = `
     <h2>${booth.name}</h2>
     <p class="details__meta">Booth ${booth.id} &middot; ${booth.category}</p>
