@@ -76,4 +76,15 @@ themeBtn.addEventListener('click', () => {
   localStorage.setItem('expomap-theme', next);
 });
 
-loadBooths().then(renderMap);
+function openFromHash(booths) {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id) return;
+  const booth = booths.find((b) => b.id === id);
+  const el = mapEl.querySelector(`[data-id="${CSS.escape(id)}"]`);
+  if (booth && el) selectBooth(booth, el);
+}
+
+loadBooths().then((booths) => {
+  renderMap(booths);
+  openFromHash(booths);
+});
