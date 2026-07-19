@@ -1,6 +1,7 @@
 const mapEl = document.getElementById('map');
 const detailsEl = document.getElementById('details');
 let selected = null;
+let activeCategory = null;
 const searchEl = document.getElementById('search');
 
 async function loadBooths() {
@@ -14,6 +15,7 @@ function renderMap(booths) {
     const el = document.createElement('button');
     el.className = `booth booth--${b.category}`;
     el.dataset.id = b.id;
+    el.dataset.category = b.category;
     el.dataset.search = `${b.id} ${b.name} ${b.category}`.toLowerCase();
     el.textContent = b.id;
     el.style.gridColumn = `${b.col} / span ${b.w}`;
@@ -38,8 +40,9 @@ function selectBooth(booth, el) {
 function filterBooths(query) {
   const q = query.trim().toLowerCase();
   for (const el of mapEl.children) {
-    const match = !q || el.dataset.search.includes(q);
-    el.classList.toggle('is-dimmed', !match);
+    const matchText = !q || el.dataset.search.includes(q);
+    const matchCategory = !activeCategory || el.dataset.category === activeCategory;
+    el.classList.toggle('is-dimmed', !(matchText && matchCategory));
   }
 }
 
@@ -63,6 +66,17 @@ document.addEventListener('keydown', (e) => {
     searchEl.focus();
   }
 });
+
+for (const btn of document.querySelectorAll('.legend__item')) {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.category;
+    activeCategory = activeCategory === cat ? null : cat;
+    for (const other of document.querySelectorAll('.legend__item')) {
+      other.classList.toggle('is-active', other.dataset.category === activeCategory);
+    }
+    filterBooths(searchEl.value);
+  });
+}
 
 const themeBtn = document.getElementById('theme');
 const savedTheme = localStorage.getItem('expomap-theme');
