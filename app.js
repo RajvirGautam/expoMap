@@ -18,6 +18,8 @@ function renderMap(booths) {
     el.dataset.category = b.category;
     el.dataset.search = `${b.id} ${b.name} ${b.category}`.toLowerCase();
     el.textContent = b.id;
+    el.title = b.name;
+    el.setAttribute('aria-label', `${b.name}, booth ${b.id}`);
     el.style.gridColumn = `${b.col} / span ${b.w}`;
     el.style.gridRow = `${b.row} / span ${b.h}`;
     el.addEventListener('click', () => selectBooth(b, el));
