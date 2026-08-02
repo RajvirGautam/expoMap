@@ -80,6 +80,18 @@ for (const btn of document.querySelectorAll('.legend__item')) {
   });
 }
 
+let cell = Number(localStorage.getItem('expomap-zoom')) || 64;
+
+function setZoom(next) {
+  cell = Math.min(96, Math.max(40, next));
+  mapEl.style.setProperty('--cell', `${cell}px`);
+  localStorage.setItem('expomap-zoom', cell);
+}
+
+document.getElementById('zoom-in').addEventListener('click', () => setZoom(cell + 8));
+document.getElementById('zoom-out').addEventListener('click', () => setZoom(cell - 8));
+setZoom(cell);
+
 const themeBtn = document.getElementById('theme');
 const savedTheme = localStorage.getItem('expomap-theme');
 if (savedTheme) document.documentElement.dataset.theme = savedTheme;
