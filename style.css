@@ -124,3 +124,11 @@ header { position: relative; }
   font-size: 18px;
   cursor: pointer;
 }
+.search select {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--fg);
+  font: inherit;
+}

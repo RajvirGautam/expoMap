@@ -4,8 +4,8 @@ let selected = null;
 let activeCategory = null;
 const searchEl = document.getElementById('search');
 
-async function loadBooths() {
-  const res = await fetch('data/booths.json');
+async function loadBooths(hall = 'booths') {
+  const res = await fetch(`data/${hall}.json`);
   return res.json();
 }
 
@@ -91,6 +91,15 @@ function setZoom(next) {
 document.getElementById('zoom-in').addEventListener('click', () => setZoom(cell + 8));
 document.getElementById('zoom-out').addEventListener('click', () => setZoom(cell - 8));
 setZoom(cell);
+
+const hallEl = document.getElementById('hall');
+
+hallEl.addEventListener('change', async () => {
+  selected = null;
+  detailsEl.innerHTML = '<p class="details__empty">Select a booth to see details.</p>';
+  renderMap(await loadBooths(hallEl.value));
+  filterBooths(searchEl.value);
+});
 
 const themeBtn = document.getElementById('theme');
 const savedTheme = localStorage.getItem('expomap-theme');
