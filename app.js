@@ -2,6 +2,7 @@ const mapEl = document.getElementById('map');
 const detailsEl = document.getElementById('details');
 let selected = null;
 let activeCategory = null;
+const favourites = new Set(JSON.parse(localStorage.getItem('expomap-favs') || '[]'));
 const searchEl = document.getElementById('search');
 
 async function loadBooths(hall = 'booths') {
@@ -27,6 +28,12 @@ function renderMap(booths) {
   }
 }
 
+function toggleFavourite(id) {
+  if (favourites.has(id)) favourites.delete(id);
+  else favourites.add(id);
+  localStorage.setItem('expomap-favs', JSON.stringify([...favourites]));
+}
+
 function selectBooth(booth, el) {
   if (selected) selected.classList.remove('is-selected');
   selected = el;
@@ -37,6 +44,21 @@ function selectBooth(booth, el) {
     <p class="details__meta">Booth ${booth.id} &middot; ${booth.category}</p>
     ${booth.desc ? `<p class="details__desc">${booth.desc}</p>` : ''}
   `;
+
+  const favBtn = document.createElement('button');
+  favBtn.type = 'button';
+  favBtn.className = 'fav-btn';
+  const paint = () => {
+    const saved = favourites.has(booth.id);
+    favBtn.textContent = saved ? '★ Saved' : '☆ Save booth';
+    el.classList.toggle('is-fav', saved);
+  };
+  favBtn.addEventListener('click', () => {
+    toggleFavourite(booth.id);
+    paint();
+  });
+  paint();
+  detailsEl.appendChild(favBtn);
 }
 
 function filterBooths(query) {
