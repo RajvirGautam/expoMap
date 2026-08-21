@@ -17,6 +17,7 @@ function renderMap(booths) {
     el.className = `booth booth--${b.category}`;
     el.dataset.id = b.id;
     el.dataset.category = b.category;
+    if (favourites.has(b.id)) el.classList.add('is-fav');
     el.dataset.search = `${b.id} ${b.name} ${b.category}`.toLowerCase();
     el.textContent = b.id;
     el.title = b.name;

@@ -142,3 +142,11 @@ header { position: relative; }
   font: inherit;
   cursor: pointer;
 }
+.booth { position: relative; }
+.booth.is-fav::after {
+  content: '★';
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  font-size: 11px;
+}
