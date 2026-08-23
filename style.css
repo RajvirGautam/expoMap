@@ -150,3 +150,4 @@ header { position: relative; }
   right: 5px;
   font-size: 11px;
 }
+.map__status { grid-column: 1 / -1; margin: 0; color: var(--muted); }

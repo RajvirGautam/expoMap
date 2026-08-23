@@ -7,6 +7,7 @@ const searchEl = document.getElementById('search');
 
 async function loadBooths(hall = 'booths') {
   const res = await fetch(`data/${hall}.json`);
+  if (!res.ok) throw new Error(`Failed to load ${hall}`);
   return res.json();
 }
 
@@ -64,7 +65,7 @@ function selectBooth(booth, el) {
 
 function filterBooths(query) {
   const q = query.trim().toLowerCase();
-  for (const el of mapEl.children) {
+  for (const el of mapEl.querySelectorAll('.booth')) {
     const matchText = !q || el.dataset.search.includes(q);
     const matchCategory = !activeCategory || el.dataset.category === activeCategory;
     el.classList.toggle('is-dimmed', !(matchText && matchCategory));
@@ -80,7 +81,7 @@ searchEl.addEventListener('keydown', (e) => {
     searchEl.blur();
   }
   if (e.key === 'Enter') {
-    const first = [...mapEl.children].find((el) => !el.classList.contains('is-dimmed'));
+    const first = [...mapEl.querySelectorAll('.booth')].find((el) => !el.classList.contains('is-dimmed'));
     if (first) first.click();
   }
 });
@@ -144,7 +145,12 @@ function openFromHash(booths) {
   if (booth && el) selectBooth(booth, el);
 }
 
-loadBooths().then((booths) => {
-  renderMap(booths);
-  openFromHash(booths);
-});
+mapEl.innerHTML = '<p class="map__status">Loading booths…</p>';
+loadBooths()
+  .then((booths) => {
+    renderMap(booths);
+    openFromHash(booths);
+  })
+  .catch(() => {
+    mapEl.innerHTML = '<p class="map__status">Could not load booths. Refresh to try again.</p>';
+  });
