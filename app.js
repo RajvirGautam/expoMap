@@ -36,6 +36,15 @@ function toggleFavourite(id) {
   localStorage.setItem('expomap-favs', JSON.stringify([...favourites]));
 }
 
+function isOpenNow(booth, now = new Date()) {
+  const toMins = (t) => {
+    const [h, m] = t.split(':').map(Number);
+    return h * 60 + m;
+  };
+  const mins = now.getHours() * 60 + now.getMinutes();
+  return mins >= toMins(booth.open) && mins < toMins(booth.close);
+}
+
 function selectBooth(booth, el) {
   if (selected) selected.classList.remove('is-selected');
   selected = el;
@@ -44,6 +53,7 @@ function selectBooth(booth, el) {
   detailsEl.innerHTML = `
     <h2>${booth.name}</h2>
     <p class="details__meta">Booth ${booth.id} &middot; ${booth.category}</p>
+    ${booth.open ? `<p class="details__hours">${booth.open}–${booth.close} <span class="status ${isOpenNow(booth) ? 'status--open' : 'status--closed'}">${isOpenNow(booth) ? 'Open now' : 'Closed'}</span></p>` : ''}
     ${booth.desc ? `<p class="details__desc">${booth.desc}</p>` : ''}
   `;
 
