@@ -30,6 +30,12 @@ function renderMap(booths) {
   }
 }
 
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[c]);
+}
+
 function toggleFavourite(id) {
   if (favourites.has(id)) favourites.delete(id);
   else favourites.add(id);
@@ -51,10 +57,10 @@ function selectBooth(booth, el) {
   el.classList.add('is-selected');
   history.replaceState(null, '', `#${booth.id}`);
   detailsEl.innerHTML = `
-    <h2>${booth.name}</h2>
-    <p class="details__meta">Booth ${booth.id} &middot; ${booth.category}</p>
-    ${booth.open ? `<p class="details__hours">${booth.open}–${booth.close} <span class="status ${isOpenNow(booth) ? 'status--open' : 'status--closed'}">${isOpenNow(booth) ? 'Open now' : 'Closed'}</span></p>` : ''}
-    ${booth.desc ? `<p class="details__desc">${booth.desc}</p>` : ''}
+    <h2>${escapeHtml(booth.name)}</h2>
+    <p class="details__meta">Booth ${escapeHtml(booth.id)} &middot; ${escapeHtml(booth.category)}</p>
+    ${booth.open ? `<p class="details__hours">${escapeHtml(booth.open)}–${escapeHtml(booth.close)} <span class="status ${isOpenNow(booth) ? 'status--open' : 'status--closed'}">${isOpenNow(booth) ? 'Open now' : 'Closed'}</span></p>` : ''}
+    ${booth.desc ? `<p class="details__desc">${escapeHtml(booth.desc)}</p>` : ''}
   `;
 
   const favBtn = document.createElement('button');
