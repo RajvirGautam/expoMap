@@ -132,6 +132,13 @@ document.getElementById('zoom-in').addEventListener('click', () => setZoom(cell 
 document.getElementById('zoom-out').addEventListener('click', () => setZoom(cell - 8));
 setZoom(cell);
 
+document.getElementById('clear').addEventListener('click', () => {
+  searchEl.value = '';
+  activeCategory = null;
+  for (const btn of document.querySelectorAll('.legend__item')) btn.classList.remove('is-active');
+  filterBooths('');
+});
+
 const hallEl = document.getElementById('hall');
 
 hallEl.addEventListener('change', async () => {
