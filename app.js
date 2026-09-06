@@ -28,6 +28,20 @@ function renderMap(booths) {
     el.addEventListener('click', () => selectBooth(b, el));
     mapEl.appendChild(el);
   }
+  updateLegendCounts(booths);
+}
+
+function updateLegendCounts(booths) {
+  for (const btn of document.querySelectorAll('.legend__item')) {
+    const count = booths.filter((b) => b.category === btn.dataset.category).length;
+    let badge = btn.querySelector('.legend__count');
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.className = 'legend__count';
+      btn.appendChild(badge);
+    }
+    badge.textContent = count;
+  }
 }
 
 function escapeHtml(value) {

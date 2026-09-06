@@ -170,3 +170,10 @@ header { position: relative; }
   font: inherit;
   cursor: pointer;
 }
+.legend__count {
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--fg);
+  font-size: 11px;
+}
