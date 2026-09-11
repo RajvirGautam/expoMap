@@ -12,6 +12,15 @@ npx serve .
 python3 -m http.server 8000
 ```
 
+## Features
+
+- Two halls (Main hall and Hall B), switchable from the toolbar
+- Search, category filter from the legend, and a Clear button
+- Booth details with description, opening hours and an open/closed badge
+- Save favourite booths (stored in your browser)
+- Shareable links: selecting a booth updates the URL hash
+- Zoom controls, dark mode, mobile layout and a print stylesheet
+
 ## Search
 
 Type in the search box to dim booths that don't match by id, name or category.
@@ -31,3 +40,7 @@ Booths live in `data/booths.json`. Each booth sits on an 8-column grid:
 | `category` | `hardware`, `software`, `startup`, `food` or `info` |
 | `col`, `row` | top-left grid cell (1-based) |
 | `w`, `h` | width and height in cells |
+| `desc` | short description shown in the details panel |
+| `open`, `close` | opening hours, `HH:MM` 24-hour |
+
+Hall B lives in `data/hall-b.json` with the same format.
