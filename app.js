@@ -62,4 +62,16 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+const themeBtn = document.getElementById('theme');
+const savedTheme = localStorage.getItem('expomap-theme');
+if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+
+themeBtn.addEventListener('click', () => {
+  const isDark = document.documentElement.dataset.theme === 'dark' ||
+    (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+  const next = isDark ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('expomap-theme', next);
+});
+
 loadBooths().then(renderMap);
