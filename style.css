@@ -155,3 +155,9 @@ header { position: relative; }
 .status { margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
 .status--open { background: #dcfce7; color: #166534; }
 .status--closed { background: #fee2e2; color: #991b1b; }
+@media print {
+  .search, .theme-toggle, .fav-btn { display: none; }
+  body { background: #fff; color: #000; }
+  header, .details, .booth { border-color: #999; }
+  .booth.is-dimmed { opacity: 1; }
+}
