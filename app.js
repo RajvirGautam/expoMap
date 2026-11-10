@@ -30,6 +30,7 @@ function selectBooth(booth, el) {
   detailsEl.innerHTML = `
     <h2>${booth.name}</h2>
     <p class="details__meta">Booth ${booth.id} &middot; ${booth.category}</p>
+    ${booth.desc ? `<p class="details__desc">${booth.desc}</p>` : ''}
   `;
 }
 

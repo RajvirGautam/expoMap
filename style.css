@@ -86,3 +86,4 @@ header { position: relative; }
   cursor: pointer;
 }
 .booth[class*="booth--"] { color: #1c1f24; }
+.details__desc { margin: 12px 0 0; line-height: 1.5; }
