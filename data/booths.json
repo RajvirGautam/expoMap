@@ -1,13 +1,13 @@
 [
-  {"id": "A1", "name": "Robotics Club", "category": "hardware", "col": 1, "row": 1, "w": 2, "h": 1, "desc": "Line followers, a robotic arm demo and the bot-soccer arena."},
-  {"id": "A3", "name": "IoT Lab", "category": "hardware", "col": 3, "row": 1, "w": 1, "h": 1, "desc": "Smart-campus sensors streaming live to a dashboard."},
-  {"id": "A4", "name": "Drone Society", "category": "hardware", "col": 4, "row": 1, "w": 2, "h": 2, "desc": "Indoor flight demos every hour, plus a build-your-own kit table."},
-  {"id": "A7", "name": "Registration", "category": "info", "col": 7, "row": 1, "w": 2, "h": 1, "desc": "Pick up your badge, wristband and fest schedule here."},
-  {"id": "B1", "name": "AI/ML Showcase", "category": "software", "col": 1, "row": 3, "w": 2, "h": 2, "desc": "Student ML projects: vision, speech and a live LLM playground."},
-  {"id": "B3", "name": "Web Dev Guild", "category": "software", "col": 3, "row": 3, "w": 1, "h": 1, "desc": "Portfolio reviews and a 30-minute intro to building for the web."},
-  {"id": "B4", "name": "Open Source Corner", "category": "software", "col": 4, "row": 4, "w": 2, "h": 1, "desc": "Find a first issue and make your first pull request on the spot."},
-  {"id": "B7", "name": "Hackathon Desk", "category": "info", "col": 7, "row": 3, "w": 2, "h": 2, "desc": "Team sign-ups, problem statements and mentor slots for the 24h hack."},
-  {"id": "C1", "name": "Food Court", "category": "food", "col": 1, "row": 6, "w": 3, "h": 1, "desc": "Main food stalls. Busiest between 1 and 2 pm."},
-  {"id": "C5", "name": "Chai Point", "category": "food", "col": 5, "row": 6, "w": 1, "h": 1, "desc": "Chai, coffee and samosas."},
-  {"id": "C6", "name": "Startup Alley", "category": "startup", "col": 6, "row": 6, "w": 3, "h": 1, "desc": "Campus startups pitching products and hiring interns."}
+  {"id": "A1", "name": "Robotics Club", "category": "hardware", "col": 1, "row": 1, "w": 2, "h": 1, "desc": "Line followers, a robotic arm demo and the bot-soccer arena.", "open": "10:00", "close": "17:30"},
+  {"id": "A3", "name": "IoT Lab", "category": "hardware", "col": 3, "row": 1, "w": 1, "h": 1, "desc": "Smart-campus sensors streaming live to a dashboard.", "open": "10:00", "close": "17:30"},
+  {"id": "A4", "name": "Drone Society", "category": "hardware", "col": 4, "row": 1, "w": 2, "h": 2, "desc": "Indoor flight demos every hour, plus a build-your-own kit table.", "open": "11:00", "close": "16:00"},
+  {"id": "A7", "name": "Registration", "category": "info", "col": 7, "row": 1, "w": 2, "h": 1, "desc": "Pick up your badge, wristband and fest schedule here.", "open": "08:30", "close": "18:30"},
+  {"id": "B1", "name": "AI/ML Showcase", "category": "software", "col": 1, "row": 3, "w": 2, "h": 2, "desc": "Student ML projects: vision, speech and a live LLM playground.", "open": "10:00", "close": "17:30"},
+  {"id": "B3", "name": "Web Dev Guild", "category": "software", "col": 3, "row": 3, "w": 1, "h": 1, "desc": "Portfolio reviews and a 30-minute intro to building for the web.", "open": "10:00", "close": "17:30"},
+  {"id": "B4", "name": "Open Source Corner", "category": "software", "col": 4, "row": 4, "w": 2, "h": 1, "desc": "Find a first issue and make your first pull request on the spot.", "open": "10:00", "close": "17:30"},
+  {"id": "B7", "name": "Hackathon Desk", "category": "info", "col": 7, "row": 3, "w": 2, "h": 2, "desc": "Team sign-ups, problem statements and mentor slots for the 24h hack.", "open": "09:00", "close": "21:00"},
+  {"id": "C1", "name": "Food Court", "category": "food", "col": 1, "row": 6, "w": 3, "h": 1, "desc": "Main food stalls. Busiest between 1 and 2 pm.", "open": "09:00", "close": "20:00"},
+  {"id": "C5", "name": "Chai Point", "category": "food", "col": 5, "row": 6, "w": 1, "h": 1, "desc": "Chai, coffee and samosas.", "open": "09:00", "close": "20:00"},
+  {"id": "C6", "name": "Startup Alley", "category": "startup", "col": 6, "row": 6, "w": 3, "h": 1, "desc": "Campus startups pitching products and hiring interns.", "open": "10:00", "close": "17:30"}
 ]
